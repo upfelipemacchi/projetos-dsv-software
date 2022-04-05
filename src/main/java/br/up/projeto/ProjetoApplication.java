@@ -15,7 +15,9 @@ public class ProjetoApplication {
 
     @RequestMapping("/")
     public String home() {
-        return  "<a href='localhost:8080/'>Home</a><br/>";
+        return (
+            "http://localhost:8080!"
+        );
     }
 
 }
