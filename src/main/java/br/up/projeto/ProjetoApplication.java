@@ -16,7 +16,7 @@ public class ProjetoApplication {
     @RequestMapping("/")
     public String home() {
         return (
-            "Quem tiver lendo isso é gay!"
+            "http://localhost:8080!"
         );
     }
 
