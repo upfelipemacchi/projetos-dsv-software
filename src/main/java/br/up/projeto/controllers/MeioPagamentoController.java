@@ -8,35 +8,35 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.up.projeto.domain.Pagamento;
-import br.up.projeto.repository.PagamentoRepository;
+import br.up.projeto.domain.MeioPagamento;
+import br.up.projeto.repository.MeioPagamentoRepository;
 
 @RestController
-public class PagamentoController {
+public class MeioPagamentoController {
 
-    private final PagamentoRepository repository;
+    private final MeioPagamentoRepository repository;
 
-    PagamentoController(PagamentoRepository repository) {
+    MeioPagamentoController(MeioPagamentoRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/pagamento")
-    Iterable<Pagamento> listar() {
+    @GetMapping("/meiopagamento")
+    Iterable<MeioPagamento> listar() {
         return repository.findAll();
     }
 
-    @GetMapping("/pagamento/{id}")
-    Pagamento buscarPorId(@PathVariable Long id) {
+    @GetMapping("/meiopagamento/{id}")
+    MeioPagamento buscarPorId(@PathVariable Long id) {
         return repository.findById(id).get();
     }
 
-    @PostMapping("/pagamentoincluir")
-    Pagamento incluir(@RequestBody Pagamento novoPagamento) {
+    @PostMapping("/meiopagamentoincluir")
+    MeioPagamento incluir(@RequestBody MeioPagamento novoPagamento) {
         return repository.save(novoPagamento);
     }
 
-    @PutMapping("/pagamento/{id}")
-    Pagamento atualizar(@RequestBody Pagamento pagamentoAlterado, @PathVariable Long id) {
+    @PutMapping("/meiopagamento/{id}")
+    MeioPagamento atualizar(@RequestBody MeioPagamento pagamentoAlterado, @PathVariable Long id) {
         return repository.findById(id)
                 .map(pagamento -> {
                     pagamento.setPagamento(pagamentoAlterado.getPagamento());
@@ -48,7 +48,7 @@ public class PagamentoController {
                 });
     }
 
-    @DeleteMapping("/pagamento/{id}")
+    @DeleteMapping("/meiopagamento/{id}")
     void excluir(@PathVariable Long id) {
         repository.deleteById(id);
     }

@@ -8,31 +8,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Pagamento {
+public class MeioPagamento {
 
     @Id
     @GeneratedValue
     private Long id;
     private String pagamento;
+    private String codigo;
     private Double valor;
     /* private Date data_pagamento; */
 
-    public Pagamento() {
+    public MeioPagamento() {
 
     }
 
-    public Pagamento(String pagamento) {
+    public MeioPagamento(String pagamento) {
         this.pagamento = pagamento;
     }
 
-    public Pagamento(String pagamento, Double valor) {
+    public MeioPagamento(String pagamento, String codigo, Double valor) {
         this.pagamento = pagamento;
+        this.codigo = codigo;
         this.valor = valor;
     }
 
-    public Pagamento(Long id, String pagamento, Double valor/* Date data_pagamento */) {
+    public MeioPagamento(Long id, String pagamento, String codigo, Double valor/* Date data_pagamento */) {
         this.id = id;
         this.pagamento = pagamento;
+        this.codigo = codigo;
         this.valor = valor;
         /* this.data_pagamento = data_pagamento; */
     }
@@ -51,6 +54,16 @@ public class Pagamento {
 
     public void setPagamento(String pagamento) {
         this.pagamento = pagamento;
+    }
+
+    /*--------------*/
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     /*--------------*/
