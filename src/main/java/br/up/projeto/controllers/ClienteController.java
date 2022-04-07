@@ -8,35 +8,35 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.up.projeto.ClientesRepository;
-import br.up.projeto.domain.Clientes;
+import br.up.projeto.domain.Cliente;
+import br.up.projeto.repository.ClienteRepository;
 
 @RestController
-public class ClientesController {
+public class ClienteController {
 
-    private final ClientesRepository repository;
+    private final ClienteRepository repository;
 
-    ClientesController(ClientesRepository repository) {
+    ClienteController(ClienteRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/clientes")
-    Iterable<Clientes> lsitar() {
+    Iterable<Cliente> lsitar() {
         return repository.findAll();
     }
 
     @GetMapping("clientes/{id}")
-    Clientes buscarPorId(@PathVariable long id) {
+    Cliente buscarPorId(@PathVariable long id) {
         return repository.findById(id).get();
     }
 
     @PostMapping("/clientes")
-    Clientes incluir(@RequestBody Clientes novaClientes) {
+    Cliente incluir(@RequestBody Cliente novaClientes) {
         return repository.save(novaClientes);
     }
 
     @PutMapping("/clientes/{id}")
-    Clientes atualizar(@RequestBody Clientes clientesAlterada, @PathVariable Long id) {
+    Cliente atualizar(@RequestBody Cliente clientesAlterada, @PathVariable Long id) {
         return repository.findById(id).map(clientes -> {
             clientes.setNome(clientesAlterada.getNome());
             return repository.save(clientes);

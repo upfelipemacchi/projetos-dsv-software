@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Clientes {
+public class Cliente {
     @Id
     @GeneratedValue
     private Long id;
@@ -16,25 +16,25 @@ public class Clientes {
     private String senha;
 
     // Constructor
-    public Clientes() {
+    public Cliente() {
     }
 
-    public Clientes(String nome) {
+    public Cliente(String nome) {
         this.nome = nome;
     }
 
-    public Clientes(Long id, String nome) {
+    public Cliente(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public Clientes(String email, String cpf, String senha) {
+    public Cliente(String email, String cpf, String senha) {
         this.email = email;
         this.cpf = cpf;
         this.senha = senha;
     }
 
-    public Clientes(Long id, String nome, String cpf, String datanasc, String email, String senha) {
+    public Cliente(Long id, String nome, String cpf, String datanasc, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -45,27 +45,27 @@ public class Clientes {
 
     // GET
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public String getCPF() {
-        return this.cpf;
+        return cpf;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public String getSenha() {
-        return this.senha;
+        return senha;
     }
 
     public String getDatanasc() {
-        return this.datanasc;
+        return datanasc;
     }
 
     // SET
