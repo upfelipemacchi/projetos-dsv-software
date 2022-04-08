@@ -1,8 +1,5 @@
 package br.up.projeto.domain;
 
-import java.sql.Date;
-import java.time.temporal.ValueRange;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,31 +10,21 @@ public class MeioPagamento {
     @Id
     @GeneratedValue
     private Long id;
-    private String pagamento;
+    private String meioPagamento;
     private String codigo;
-    private Double valor;
-    /* private Date data_pagamento; */
 
     public MeioPagamento() {
 
     }
-
-    public MeioPagamento(String pagamento) {
-        this.pagamento = pagamento;
-    }
-
-    public MeioPagamento(String pagamento, String codigo, Double valor) {
-        this.pagamento = pagamento;
+    public MeioPagamento(String meioPagamento, String codigo) {
+        this.meioPagamento = meioPagamento;
         this.codigo = codigo;
-        this.valor = valor;
     }
 
-    public MeioPagamento(Long id, String pagamento, String codigo, Double valor/* Date data_pagamento */) {
+    public MeioPagamento(Long id, String meioPagamento, String codigo) {
         this.id = id;
-        this.pagamento = pagamento;
+        this.meioPagamento = meioPagamento;
         this.codigo = codigo;
-        this.valor = valor;
-        /* this.data_pagamento = data_pagamento; */
     }
 
     public Long getId() {
@@ -48,12 +35,14 @@ public class MeioPagamento {
         this.id = id;
     }
 
-    public String getPagamento() {
-        return pagamento;
+    /*--------------*/
+
+    public String getMeioPagamento() {
+        return meioPagamento;
     }
 
-    public void setPagamento(String pagamento) {
-        this.pagamento = pagamento;
+    public void setMeioPagamento(String pagamento) {
+        this.meioPagamento = pagamento;
     }
 
     /*--------------*/
@@ -68,23 +57,4 @@ public class MeioPagamento {
 
     /*--------------*/
 
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    /*--------------*/
-
-    /*
-     * public Date getData_pagamento() {
-     * return data_pagamento;
-     * }
-     * 
-     * public void setData_pagamento(Date data_pagamento) {
-     * this.data_pagamento = data_pagamento;
-     * }
-     */
 }

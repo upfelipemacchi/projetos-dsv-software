@@ -20,37 +20,39 @@ public class LancamentoValorController {
         this.repository = repository;
     }
 
-    @GetMapping("/lancamento")
+    @GetMapping("/lancamento-valor")
     Iterable<LancamentoValor> listar(){
         return repository.findAll();
     }
 
-    @GetMapping("/lancamento/{id}")
+    @GetMapping("/lancamento-valor/{id}")
     LancamentoValor buscarPorId(@PathVariable Long id){
         return repository.findById(id).get();
     }
 
-    @PostMapping("/lancamento")
+    @PostMapping("/lancamento-valor")
     LancamentoValor incluir(@RequestBody LancamentoValor novoLancamentoValor){
         return repository.save(novoLancamentoValor);
     }
 
-
-    @PutMapping("/lancamento/{id}")
+    @PutMapping("/lancamento-valor/{id}")
     LancamentoValor atualizar(@RequestBody LancamentoValor LancamentoValorAlterado, @PathVariable Long id){
         return repository.findById(id).map(lancamento -> {
-            lancamento.setNome(LancamentoValorAlterado.getNome());
-            return repository.save(LancamentoValorAlterado);
+            lancamento.setData(LancamentoValorAlterado.getData());
+            lancamento.setValor(LancamentoValorAlterado.getValor());
+            lancamento.setCliente(LancamentoValorAlterado.getCliente());
+            lancamento.setConta(LancamentoValorAlterado.getConta());
+            lancamento.setMeioPagamento(LancamentoValorAlterado.getMeioPagamento());
+            return repository.save(lancamento);
         })
         .orElseGet(() -> {
             LancamentoValorAlterado.setId(id);
             return repository.save(LancamentoValorAlterado);
-        });  }
+        });
+    }
         
-        
-    @DeleteMapping("/lacamento/{id}")
+    @DeleteMapping("/lancamento-valor/{id}")
     void excluir(@PathVariable Long id){
         repository.deleteById(id);
-
     } 
 }

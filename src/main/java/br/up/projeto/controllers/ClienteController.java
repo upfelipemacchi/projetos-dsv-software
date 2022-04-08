@@ -20,34 +20,38 @@ public class ClienteController {
         this.repository = repository;
     }
 
-    @GetMapping("/clientes")
+    @GetMapping("/cliente")
     Iterable<Cliente> lsitar() {
         return repository.findAll();
     }
 
-    @GetMapping("clientes/{id}")
+    @GetMapping("cliente/{id}")
     Cliente buscarPorId(@PathVariable long id) {
         return repository.findById(id).get();
     }
 
-    @PostMapping("/clientes")
-    Cliente incluir(@RequestBody Cliente novaClientes) {
-        return repository.save(novaClientes);
+    @PostMapping("/cliente")
+    Cliente incluir(@RequestBody Cliente novoCliente) {
+        return repository.save(novoCliente);
     }
 
-    @PutMapping("/clientes/{id}")
-    Cliente atualizar(@RequestBody Cliente clientesAlterada, @PathVariable Long id) {
-        return repository.findById(id).map(clientes -> {
-            clientes.setNome(clientesAlterada.getNome());
-            return repository.save(clientes);
+    @PutMapping("/cliente/{id}")
+    Cliente atualizar(@RequestBody Cliente clienteAlterado, @PathVariable Long id) {
+        return repository.findById(id).map(cliente -> {
+            cliente.setNome(clienteAlterado.getNome());
+            cliente.setCPF(clienteAlterado.getCPF());
+            cliente.setDatanasc(clienteAlterado.getDatanasc());
+            cliente.setEmail(clienteAlterado.getEmail());
+            cliente.setSenha(clienteAlterado.getSenha());
+            return repository.save(cliente);
         })
-                .orElseGet(() -> {
-                    clientesAlterada.setId(id);
-                    return repository.save(clientesAlterada);
-                });
+        .orElseGet(() -> {
+            clienteAlterado.setId(id);
+            return repository.save(clienteAlterado);
+        });
     }
 
-    @DeleteMapping("/clientes/{id}")
+    @DeleteMapping("/cliente/{id}")
     void excluir(@PathVariable long id) {
         repository.deleteById(id);
     }

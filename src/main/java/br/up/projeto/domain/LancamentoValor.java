@@ -18,7 +18,6 @@ public class LancamentoValor  {
     private int meioPagamento;
 
 
-
     public LancamentoValor(String data, Double valor, int i, int j, int k) {
         this.data = data;
         this.valor = valor;
@@ -36,43 +35,54 @@ public class LancamentoValor  {
     }
     public LancamentoValor() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
     public String getData() {
         return data;
     }
-    public int getMeioPagamento() {
-        return meioPagamento;
-    }
-    public void setMeioPagamento(int meioPagamento) {
-        this.meioPagamento = meioPagamento;
-    }
-    public int getConta() {
-        return conta;
-    }
-    public void setConta(int conta) {
-        this.conta = conta;
-    }
-    public int getCliente() {
-        return cliente;
-    }
-    public void setCliente(int cliente) {
-        this.cliente = cliente;
-    }
+
     public Double getValor() {
         return valor;
     }
-    public void setValor(Double valor) {
-        this.valor = valor;
+
+    public int getCliente() {
+        return cliente;
     }
+
+    public int getConta() {
+        return conta;
+    }
+
+    public int getMeioPagamento() {
+        return meioPagamento;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setData(String data) {
         this.data = data;
     }
-    public Object getNome() {
-        return null;
-    }
-    public void setNome(Object nome) {
-    }
-    public void setId(Long id2) {
+
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 
+    public void setCliente(int cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setConta(int conta) {
+        this.conta = conta;
+    }
+
+    public void setMeioPagamento(int meioPagamento) {
+        this.meioPagamento = meioPagamento;
+    }
 
 }

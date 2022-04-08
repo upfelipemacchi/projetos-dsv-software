@@ -10,13 +10,14 @@ import br.up.projeto.domain.LancamentoValor;
 import org.slf4j.Logger;
 
 @Configuration
-public class LancamentoValorCargaInicial{
-    private static final Logger log = (Logger) LoggerFactory.getLogger(LancamentoValor.class);
+public class CargaInicialLancamentoValor {
+
+    private static final Logger log = LoggerFactory.getLogger(LancamentoValor.class);
 
     @Bean CommandLineRunner
-    inciarDb (LancamentoValorRepository repository){
+    iniciarDbLancamentoValor(LancamentoValorRepository repository){
         return args -> {
-            log.info("Carregamento..." + repository.save(new LancamentoValor("10/10/10", 15.50, 1, 1, 2)));
+            log.info("Carregamento..." + repository.save(new LancamentoValor("2022-04-03", 15.50, 1, 1, 2)));
         };
     }
 }

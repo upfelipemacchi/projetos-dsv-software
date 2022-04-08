@@ -9,15 +9,15 @@ import org.springframework.context.annotation.Configuration;
 import br.up.projeto.domain.MeioPagamento;
 
 @Configuration
-public class CargaIniciaPagamento {
+public class CargaIniciaMeioPagamento {
 
-    private static final Logger log = LoggerFactory.getLogger(CargaIniciaPagamento.class);
+    private static final Logger log = LoggerFactory.getLogger(CargaIniciaMeioPagamento.class);
 
     @Bean CommandLineRunner 
-    iniciarDb(MeioPagamentoRepository repository) {
+    iniciarDbMeioPagamento(MeioPagamentoRepository repository) {
         return args -> {
-            log.info("Carregando... " + repository.save(new MeioPagamento("Boleto","01", 1.00)));
-            log.info("Carregando... " + repository.save(new MeioPagamento("Pix","25", 2.00)));
+            log.info("Carregando... " + repository.save(new MeioPagamento("Boleto","01")));
+            log.info("Carregando... " + repository.save(new MeioPagamento("Pix","25")));
         };
     }
 }

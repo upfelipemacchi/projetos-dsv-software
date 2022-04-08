@@ -1,4 +1,4 @@
-package br.edu.up.projeto.domain;
+package br.up.projeto.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,20 +12,20 @@ public class Conta {
     private Long id;
     private String banco;
     private String agencia;
-    private Long codigo;
+    private int codigo;
     private String nome;
 
     public Conta() {
     }
 
-    public Conta(String nome, String banco, String agencia, Long codigo) {
+    public Conta(String nome, String banco, String agencia, int codigo) {
         this.banco = banco;
         this.agencia = agencia;
         this.codigo = codigo;
         this.nome = nome;
     }
 
-    public Conta(Long id, String nome, String banco, String agencia, Long codigo) {
+    public Conta(Long id, String nome, String banco, String agencia, int codigo) {
         this.id = id;
         this.banco = banco;
         this.agencia = agencia;
@@ -50,11 +50,11 @@ public class Conta {
         this.agencia = agencia;
     }
 
-    public Long getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Long codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -73,11 +73,5 @@ public class Conta {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    
-
-    
-
-    
     
 }

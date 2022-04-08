@@ -19,18 +19,11 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome) {
+    public Cliente(String nome, String cpf, String datanasc, String email, String senha) {
         this.nome = nome;
-    }
-
-    public Cliente(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
-
-    public Cliente(String email, String cpf, String senha) {
-        this.email = email;
         this.cpf = cpf;
+        this.datanasc = datanasc;
+        this.email = email;
         this.senha = senha;
     }
 

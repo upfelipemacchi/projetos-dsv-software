@@ -1,8 +1,7 @@
-package br.edu.up.projeto.repository;
+package br.up.projeto.repository;
 
+import br.up.projeto.domain.Conta;
 import org.springframework.data.repository.CrudRepository;
-
-import br.edu.up.projeto.domain.Conta;
 
 public interface ContaRepository extends CrudRepository<Conta, Long> {
     

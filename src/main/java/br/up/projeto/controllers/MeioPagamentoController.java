@@ -20,35 +20,35 @@ public class MeioPagamentoController {
         this.repository = repository;
     }
 
-    @GetMapping("/meiopagamento")
+    @GetMapping("/meio-pagamento")
     Iterable<MeioPagamento> listar() {
         return repository.findAll();
     }
 
-    @GetMapping("/meiopagamento/{id}")
+    @GetMapping("/meio-pagamento/{id}")
     MeioPagamento buscarPorId(@PathVariable Long id) {
         return repository.findById(id).get();
     }
 
-    @PostMapping("/meiopagamentoincluir")
+    @PostMapping("/meio-pagamento")
     MeioPagamento incluir(@RequestBody MeioPagamento novoPagamento) {
         return repository.save(novoPagamento);
     }
 
-    @PutMapping("/meiopagamento/{id}")
+    @PutMapping("/meio-pagamento/{id}")
     MeioPagamento atualizar(@RequestBody MeioPagamento pagamentoAlterado, @PathVariable Long id) {
-        return repository.findById(id)
-                .map(pagamento -> {
-                    pagamento.setPagamento(pagamentoAlterado.getPagamento());
-                    return repository.save(pagamento);
-                })
-                .orElseGet(() -> {
-                    pagamentoAlterado.setId(id);
-                    return repository.save(pagamentoAlterado);
-                });
+        return repository.findById(id).map(pagamento -> {
+            pagamento.setMeioPagamento(pagamentoAlterado.getMeioPagamento());
+            pagamento.setCodigo(pagamentoAlterado.getCodigo());
+            return repository.save(pagamento);
+        })
+        .orElseGet(() -> {
+            pagamentoAlterado.setId(id);
+            return repository.save(pagamentoAlterado);
+        });
     }
 
-    @DeleteMapping("/meiopagamento/{id}")
+    @DeleteMapping("/meio-pagamento/{id}")
     void excluir(@PathVariable Long id) {
         repository.deleteById(id);
     }
