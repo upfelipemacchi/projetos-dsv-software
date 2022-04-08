@@ -1,4 +1,4 @@
-# projetos-dsv-software  
+# Projeto de microserviços com Spring Boot
  Projeto de Java em Spring Boot, com o tema Financeiro.  
  
  ### Grupo 
